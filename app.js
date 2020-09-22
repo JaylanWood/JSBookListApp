@@ -85,12 +85,12 @@ const form = {
       return this;
     },
     saveDateToLocalStorage(keyName, keyValue) {
-      window.localStorage.setItem(keyName, JSON.stringify(keyValue));
+      localStorage.setItem(keyName, JSON.stringify(keyValue));
       return this;
     },
     getDateFromLocalStorage(keyName) {
-      if (window.localStorage.getItem(keyName)) {
-        this.data = JSON.parse(window.localStorage.getItem(keyName));
+      if (localStorage.getItem(keyName)) {
+        this.data = JSON.parse(localStorage.getItem(keyName));
       } else {
         this.data = [];
       }
@@ -176,12 +176,12 @@ const bookList = {
   model: {
     data: [],
     saveDateToLocalStorage(keyName, keyValue) {
-      window.localStorage.setItem(keyName, JSON.stringify(keyValue));
+      localStorage.setItem(keyName, JSON.stringify(keyValue));
       return this;
     },
     getDateFromLocalStorage(keyName) {
-      if (window.localStorage.getItem(keyName)) {
-        this.data = JSON.parse(window.localStorage.getItem(keyName));
+      if (localStorage.getItem(keyName)) {
+        this.data = JSON.parse(localStorage.getItem(keyName));
       } else {
         this.data = [];
       }
@@ -215,7 +215,6 @@ const bookList = {
       window.onload = () => {
         this.model.getDateFromLocalStorage("books");
         this.view.renderFromLocalStorage(this.model.data);
-
         const deleteBtns = this.view.domElement.querySelectorAll(".delete");
         Array.from(deleteBtns).forEach((btn) => {
           this.listenToDeleteBtn(btn);
