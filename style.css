@@ -3,28 +3,28 @@
   margin: 0;
   font-family: sans-serif;
 }
-header {
+.header {
   text-align: center;
   font-size: 50px;
 }
-header span {
+.header span {
   color: #0281b1;
 }
-form {
+.form {
   max-width: 75vw;
   margin-left: auto;
   margin-right: auto;
 }
-form .form-item {
+.form .form-item {
   margin: 15px 0;
 }
-form input {
+.form input {
   width: 100%;
   height: 25px;
   border: #c5c5c5 1px solid;
   border-radius: 3px;
 }
-form input[type="submit"] {
+.form input[type="submit"] {
   background-color: #0281b1;
   color: #ffffff;
   height: 35px;
@@ -32,22 +32,21 @@ form input[type="submit"] {
   white-space: nowrap;
   border-radius: 3px;
 }
-table {
+.bookList {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
   width: 75vw;
   border-collapse: collapse;
 }
-table thead {
+.bookList thead {
   font-weight: bold;
 }
-table tbody tr:nth-child(odd) {
+.bookList tbody tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
-
-table th,
-table td {
+.bookList th,
+.bookList td {
   text-align: left;
   padding: 10px;
   max-width: 0px;
@@ -58,7 +57,7 @@ table td {
   line-height: 20px;
   border-top: #dfdfdf 1px solid;
 }
-table .delete {
+.bookList .delete {
   background-color: #e63b23;
   border: #acacac 1px solid;
   color: #ffffff;
@@ -66,4 +65,25 @@ table .delete {
   height: 10px;
   line-height: 10px;
   cursor: pointer;
+}
+.alerter {
+  background-color: rgb(60, 0, 139);
+  color: #ffffff;
+  padding: 10px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 4px;
+}
+.success {
+  background-color: rgb(0, 139, 0);
+}
+.fail {
+  background-color: rgb(139, 0, 0);
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }
