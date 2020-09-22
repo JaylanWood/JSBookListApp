@@ -89,7 +89,11 @@ const form = {
       return this;
     },
     getDateFromLocalStorage(keyName) {
-      this.data = JSON.parse(window.localStorage.getItem(keyName));
+      if (window.localStorage.getItem(keyName)) {
+        this.data = JSON.parse(window.localStorage.getItem(keyName));
+      } else {
+        this.data = [];
+      }
       return this;
     },
   },
@@ -176,7 +180,11 @@ const bookList = {
       return this;
     },
     getDateFromLocalStorage(keyName) {
-      this.data = JSON.parse(window.localStorage.getItem(keyName));
+      if (window.localStorage.getItem(keyName)) {
+        this.data = JSON.parse(window.localStorage.getItem(keyName));
+      } else {
+        this.data = [];
+      }
       return this;
     },
     removeBookOfData(isbn) {
@@ -205,15 +213,13 @@ const bookList = {
       });
 
       window.onload = () => {
-        if (localStorage.getItem("books")) {
-          this.model.getDateFromLocalStorage("books");
-          this.view.renderFromLocalStorage(this.model.data);
+        this.model.getDateFromLocalStorage("books");
+        this.view.renderFromLocalStorage(this.model.data);
 
-          const deleteBtns = this.view.domElement.querySelectorAll(".delete");
-          Array.from(deleteBtns).forEach((btn) => {
-            this.listenToDeleteBtn(btn);
-          });
-        }
+        const deleteBtns = this.view.domElement.querySelectorAll(".delete");
+        Array.from(deleteBtns).forEach((btn) => {
+          this.listenToDeleteBtn(btn);
+        });
       };
     },
     listenToDeleteBtn(btn) {
