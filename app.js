@@ -205,13 +205,15 @@ const bookList = {
       });
 
       window.onload = () => {
-        this.model.getDateFromLocalStorage("books");
-        this.view.renderFromLocalStorage(this.model.data);
+        if (localStorage.getItem("books")) {
+          this.model.getDateFromLocalStorage("books");
+          this.view.renderFromLocalStorage(this.model.data);
 
-        const deleteBtns = this.view.domElement.querySelectorAll(".delete");
-        Array.from(deleteBtns).forEach((btn) => {
-          this.listenToDeleteBtn(btn);
-        });
+          const deleteBtns = this.view.domElement.querySelectorAll(".delete");
+          Array.from(deleteBtns).forEach((btn) => {
+            this.listenToDeleteBtn(btn);
+          });
+        }
       };
     },
     listenToDeleteBtn(btn) {
